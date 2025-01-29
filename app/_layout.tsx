@@ -8,6 +8,8 @@ export default function RootLayout() {
     <QueryProvider>
       <Stack screenOptions={{ headerShown: false }}>
         <Stack.Screen name="index" options={{ title: "Home" }} />
+        <Stack.Screen name="(tabs)" />
+        <Stack.Screen name="(stack)" />
       </Stack>
     </QueryProvider>
   );
