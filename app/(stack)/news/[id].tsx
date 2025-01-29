@@ -3,10 +3,10 @@ import React from "react";
 import { router, Stack, useLocalSearchParams } from "expo-router";
 import { FontAwesome5 } from "@expo/vector-icons";
 
-// displays content of a particular news
+// displays all the news based on a particular category
 
-const NewsContent = () => {
-  const { title } = useLocalSearchParams();
+const News = () => {
+  const { id } = useLocalSearchParams();
   return (
     <View>
       <Stack.Screen
@@ -22,13 +22,12 @@ const NewsContent = () => {
               )}
             </Pressable>
           ),
-          title: `News Details`,
+          title: `News About :  ${id}`,
         }}
       />
-      <Text>NewsContent</Text>
-      <Text>Title : {title}</Text>
+      <Text>News category id : {id}</Text>
     </View>
   );
 };
 
-export default NewsContent;
+export default News;
