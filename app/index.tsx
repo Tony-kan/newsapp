@@ -1,9 +1,16 @@
 import { ImageBackground, Pressable, Text, View } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
-import { router } from "expo-router";
+import { Redirect, router } from "expo-router";
 import { StatusBar } from "expo-status-bar";
+import { useState } from "react";
 
 export default function Index() {
+  const onboarded = true;
+
+  if (onboarded) {
+    return <Redirect href="/home" />;
+  }
+
   return (
     <ImageBackground
       source={require("../assets/images/news_bg.jpg")}

@@ -47,9 +47,12 @@ const Home = () => {
   const width = Dimensions.get("window").width;
   const height = Dimensions.get("window").height;
   return (
-    <SafeAreaView className="flex-1 h-full">
-      <ScrollView>
-        <View className="flex flex-row mx-4 justify-between items-center my-6">
+    <SafeAreaView className="flex-1">
+      <ScrollView
+        showsVerticalScrollIndicator={false}
+        contentContainerClassName="pb-56"
+      >
+        <View className="flex flex-row mx-4 justify-between items-center my-4">
           <Text className=" text-2xl font-semibold">Breaking News</Text>
           <Pressable>
             <Text className="text-blue-500 mx-4 text-xl font-bold">
@@ -57,20 +60,20 @@ const Home = () => {
             </Text>
           </Pressable>
         </View>
-        <View className="flex mx-4 my-2">
+        <View className="flex mx-4">
           <Carousel
             data={breakingNewsQuery?.data?.articles}
             renderItem={({ item }) => <RenderBreakingNewsItems item={item} />}
             width={width}
-            height={height / 2.5}
+            height={height / 2.8}
             autoPlay={true}
             pagingEnabled={true}
             scrollAnimationDuration={1000}
           />
         </View>
       </ScrollView>
-      <View className="flex flex-row justify-between items-center mt-4 mb-4">
-        <Text className=" text-2xl font-semibold">Recommended News</Text>
+      <View className="flex flex-row justify-between items-center mx-4 mb-4">
+        <Text className="text-2xl font-semibold">Recommended News</Text>
         <Pressable>
           <Text className="text-blue-500 mx-4 text-xl font-bold">View All</Text>
         </Pressable>
@@ -80,25 +83,9 @@ const Home = () => {
         renderItem={({ item }) => <RenderRecommendedNewsItems item={item} />}
         showsVerticalScrollIndicator={false}
         keyExtractor={(item, index) => item.url}
-        contentContainerClassName="pb-20 "
-        // columnWrapperClassName="flex gap-5 px-5"
-        initialNumToRender={5}
+        contentContainerClassName="pb-4 pt-2 "
+        initialNumToRender={6}
       />
-      {/* <View>
-        {breakingNewsQuery.data && (
-         
-        )}
-      </View> */}
-      {/* <View>
-        {recommendedNewsQuery.data && (
-          <FlatList
-            data={recommendedNewsQuery.data.articles}
-            renderItem={({ item }) => <RenderBreakingNewsItems item={item} />}
-            showsVerticalScrollIndicator={false}
-            keyExtractor={(item, index) => item.url}
-          />
-        )}
-      </View> */}
       <StatusBar style="auto" />
     </SafeAreaView>
   );
