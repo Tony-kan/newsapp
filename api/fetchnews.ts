@@ -2,16 +2,16 @@
 const apiBaseUrl = "https://newsapi.org/v2";
 
 //👇🏻 breaking news endpoint
-const breakingNewsUrl = `${apiBaseUrl}/top-headlines?country=ng&apiKey=${process
+const breakingNewsUrl = `${apiBaseUrl}/top-headlines?country=us&apiKey=${process
     .env.EXPO_PUBLIC_NEWS_API_KEY!}`;
 
 //👇🏻 recommended news endpoint
-const recommendedNewsUrl = `${apiBaseUrl}/top-headlines?country=ng&category=business&apiKey=${process
+const recommendedNewsUrl = `${apiBaseUrl}/top-headlines?country=us&category=business&apiKey=${process
     .env.EXPO_PUBLIC_NEWS_API_KEY!}`;
 
 //👇🏻 fetch by category  endpoint
 const discoverNewsUrl = (discover: string) =>
-    `${apiBaseUrl}/top-headlines?country=ng&category=${discover}&apiKey=${process
+    `${apiBaseUrl}/top-headlines?country=us&category=${discover}&apiKey=${process
         .env.EXPO_PUBLIC_NEWS_API_KEY!}`;
 
 //👇🏻 search news endpoint
