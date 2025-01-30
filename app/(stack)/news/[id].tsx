@@ -17,12 +17,12 @@ const News = () => {
                 <FontAwesome5
                   name="arrow-left"
                   size={24}
-                  color={pressed ? "#00f" : "#000"}
+                  color={pressed ? "#a16207" : "#00f"}
                 />
               )}
             </Pressable>
           ),
-          title: `News About :  ${id}`,
+          title: `${id} News`,
         }}
       />
       <Text>News category id : {id}</Text>

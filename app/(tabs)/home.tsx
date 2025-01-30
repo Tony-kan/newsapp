@@ -35,14 +35,14 @@ const Home = () => {
     queryKey: ["recommended-news"],
     queryFn: fetchRecommendedNews,
   });
-  console.log(
-    "breaking news",
-    JSON.stringify(breakingNewsQuery.data?.articles, null, 2)
-  );
-  console.log(
-    "Recommnded news",
-    JSON.stringify(recommendedNewsQuery.data?.articles, null, 2)
-  );
+  // console.log(
+  //   "breaking news",
+  //   JSON.stringify(breakingNewsQuery.data?.articles, null, 2)
+  // );
+  // console.log(
+  //   "Recommnded news",
+  //   JSON.stringify(recommendedNewsQuery.data?.articles, null, 2)
+  // );
 
   const width = Dimensions.get("window").width;
   const height = Dimensions.get("window").height;
@@ -67,8 +67,12 @@ const Home = () => {
             width={width}
             height={height / 2.8}
             autoPlay={true}
+            autoPlayInterval={5000}
             pagingEnabled={true}
-            scrollAnimationDuration={1000}
+            scrollAnimationDuration={2000}
+            snapEnabled={true}
+            windowSize={11}
+            key={breakingNewsQuery.data?.articles[0].url}
           />
         </View>
       </ScrollView>
