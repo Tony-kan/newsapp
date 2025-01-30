@@ -15,6 +15,7 @@ const Search = () => {
   const [query, setQuery] = useState("");
   const [results, setResults] = useState([]);
   const [resultsCount, setResultsCount] = useState(0);
+  const [isFocused, setIsFocused] = useState(false);
 
   const handleTextChange = useCallback((text: string) => {
     setQuery(text);
@@ -39,10 +40,19 @@ const Search = () => {
         <View className="flex flex-row justify-items-center items-center">
           <FontAwesome5 name="search" size={24} color="gray" className="mr-2" />
           <TextInput
-            className="flex-1 rounded-xl px-4 py-4 font-medium"
+            className={
+              isFocused
+                ? `flex-1 rounded-xl px-4 py-4 font-medium border-2 border-stone-500`
+                : `flex-1 rounded-xl px-4 py-4 font-medium border-none onFocus:border-2`
+            }
             placeholder="Search for news"
             value={query}
             onChangeText={(text) => handleTextChange(text)}
+            keyboardType="default"
+            autoFocus
+            onFocus={() => setIsFocused(true)}
+            onBlur={() => setIsFocused(false)}
+            clearButtonMode="while-editing"
           />
         </View>
         <Text className="text-lg mt-4 mb-4 font-semibold">
@@ -59,7 +69,6 @@ const Search = () => {
           )}
         </View>
       </View>
-      <StatusBar style="auto" />
     </SafeAreaView>
   );
 };

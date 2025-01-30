@@ -2,6 +2,7 @@ import { Stack } from "expo-router";
 import "./global.css";
 import React from "react";
 import QueryProvider from "@/providers/QueryProvider";
+import { StatusBar } from "expo-status-bar";
 
 export default function RootLayout() {
   return (
@@ -11,6 +12,7 @@ export default function RootLayout() {
         <Stack.Screen name="(tabs)" />
         <Stack.Screen name="(stack)" />
       </Stack>
+      <StatusBar style="dark" />
     </QueryProvider>
   );
 }

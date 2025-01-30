@@ -72,7 +72,7 @@ const Home = () => {
             scrollAnimationDuration={2000}
             snapEnabled={true}
             windowSize={11}
-            key={breakingNewsQuery.data?.articles[0].url}
+            // key={breakingNewsQuery.data?.articles[0].url}
           />
         </View>
       </ScrollView>
@@ -90,7 +90,6 @@ const Home = () => {
         contentContainerClassName="pb-4 pt-2 "
         initialNumToRender={6}
       />
-      <StatusBar style="auto" />
     </SafeAreaView>
   );
 };
