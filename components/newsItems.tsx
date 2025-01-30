@@ -7,10 +7,20 @@ import {
   convertToReadableDate,
   generateRandomImage,
 } from "@/utils";
+import { MaterialIcons } from "@expo/vector-icons";
 // import { Link } from "@react-navigation/native";
 
 const width = Dimensions.get("window").width;
 const height = Dimensions.get("window").height;
+
+interface newsCardProps {
+  title: string;
+  url: string;
+  image?: string;
+  publishedAt?: string;
+  author?: string;
+  urlToImage?: string;
+}
 export const RenderBreakingNewsItems = ({ item }: any) => {
   return (
     <Pressable
@@ -140,6 +150,44 @@ export const CategoriesItems = ({ item }: { item: Categories }) => {
             {item.name}
           </Text>
         </View>
+      </View>
+    </Pressable>
+  );
+};
+
+export const newsCard = ({ item }: { item: newsCardProps }) => {
+  return (
+    <Pressable
+      className="px-4 w-full"
+      onPress={() => router.push(`/content/${item.title}`)}
+      key={item.url}
+    >
+      <View className="flex flex-row items-center justify-between w-full mb-4 bg-white shadow-xl rounded-xl">
+        <Image
+          source={{ uri: item.urlToImage || generateRandomImage() }}
+          style={{
+            width: width * 0.4,
+            height: width * 0.3,
+            borderRadius: 5,
+          }}
+          resizeMode="cover"
+          className="rounded-xl mr-[1px]"
+        />
+
+        <View className="px-3 flex-1">
+          <Text className="text-stone-500 text-sm font-medium">
+            {item.author}
+          </Text>
+          <Text className="text-lg mb-[1px]" style={{ fontFamily: "Bold" }}>
+            {item?.title?.length > 48
+              ? item?.title?.slice(0, 47) + "..."
+              : item?.title}
+          </Text>
+          <Text className="text-stone-500 text-sm font-medium">
+            {convertToReadableDate(item.publishedAt)}
+          </Text>
+        </View>
+        <MaterialIcons name="keyboard-arrow-right" size={26} color="brown" />
       </View>
     </Pressable>
   );
