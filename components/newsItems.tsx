@@ -1,4 +1,11 @@
-import { View, Text, Pressable, Image, Dimensions } from "react-native";
+import {
+  View,
+  Text,
+  Pressable,
+  Image,
+  Dimensions,
+  ScrollView,
+} from "react-native";
 import React from "react";
 import { Link, router } from "expo-router";
 import { LinearGradient } from "expo-linear-gradient";
@@ -9,6 +16,7 @@ import {
 } from "@/utils";
 import { MaterialIcons } from "@expo/vector-icons";
 // import { Link } from "@react-navigation/native";
+import { heightPercentageToDP as hp } from "react-native-responsive-screen";
 
 const width = Dimensions.get("window").width;
 const height = Dimensions.get("window").height;
@@ -115,43 +123,94 @@ export const RenderRecommendedNewsItems = ({ item }: any) => {
   );
 };
 
-export const CategoriesItems = ({ item }: { item: Categories }) => {
+// export const CategoriesItems = ({ item }: { item: Categories }) => {
+//   return (
+//     <Pressable onPress={() => router.push(`/news/${item?.id}`)}>
+//       <View className="relative m-[7px]">
+//         <Image
+//           source={{ uri: item.image_url }}
+//           style={{
+//             width: width * 0.47,
+//             height: width * 0.45,
+//             borderRadius: 10,
+//           }}
+//           resizeMode="cover"
+//           className="rounded-xl"
+//         />
+//         <LinearGradient
+//           colors={["transparent", "rgba(0,0,0,0.9)"]}
+//           start={{ x: 0.5, y: 0 }}
+//           end={{ x: 0, y: 1 }}
+//           style={{
+//             position: "absolute",
+//             bottom: 0,
+//             width: "100%",
+//             height: "100%",
+//             borderBottomLeftRadius: 20,
+//             borderBottomRightRadius: 20,
+//           }}
+//         />
+//         <View className="absolute bottom-0 left-4 right-0 justify-end h-[80%] px-4 pb-4">
+//           <Text
+//             className="text-xl text-white mb-2"
+//             style={{ fontFamily: "Bold" }}
+//           >
+//             {item.name}
+//           </Text>
+//         </View>
+//       </View>
+//     </Pressable>
+//   );
+// };
+export const CategoriesCard = ({
+  categories,
+  activeCategory,
+  handleChangeCategory,
+}: {
+  categories: any[];
+  activeCategory: string;
+  handleChangeCategory: any;
+}) => {
   return (
-    <Pressable onPress={() => router.push(`/news/${item?.id}`)}>
-      <View className="relative m-[7px]">
-        <Image
-          source={{ uri: item.image_url }}
-          style={{
-            width: width * 0.47,
-            height: width * 0.45,
-            borderRadius: 10,
-          }}
-          resizeMode="cover"
-          className="rounded-xl"
-        />
-        <LinearGradient
-          colors={["transparent", "rgba(0,0,0,0.9)"]}
-          start={{ x: 0.5, y: 0 }}
-          end={{ x: 0, y: 1 }}
-          style={{
-            position: "absolute",
-            bottom: 0,
-            width: "100%",
-            height: "100%",
-            borderBottomLeftRadius: 20,
-            borderBottomRightRadius: 20,
-          }}
-        />
-        <View className="absolute bottom-0 left-4 right-0 justify-end h-[80%] px-4 pb-4">
-          <Text
-            className="text-xl text-white mb-2"
-            style={{ fontFamily: "Bold" }}
-          >
-            {item.name}
-          </Text>
-        </View>
-      </View>
-    </Pressable>
+    <View>
+      <ScrollView
+        horizontal
+        showsHorizontalScrollIndicator={false}
+        className="space-x-4"
+        contentContainerStyle={{
+          paddingRight: 20,
+        }}
+      >
+        {categories.map((category, index) => {
+          let isActive = category.title == activeCategory;
+          let activeButtonClass = isActive
+            ? "bg-[#a16207] "
+            : "bg-black/10 dark:bg-neutral-400 ";
+          let activeTextClass = isActive
+            ? "text-white "
+            : "text-gray-600 dark:text-neutral-600 ";
+
+          return (
+            <Pressable
+              key={index}
+              onPress={() => handleChangeCategory(category.title)}
+              className="flex items-center space-y-1 mx-1"
+            >
+              <View className={"rounded-full py-2 px-4 " + activeButtonClass}>
+                <Text
+                  className={"capitalize " + activeTextClass}
+                  style={{
+                    fontSize: hp(1.6),
+                  }}
+                >
+                  {category.title}
+                </Text>
+              </View>
+            </Pressable>
+          );
+        })}
+      </ScrollView>
+    </View>
   );
 };
 

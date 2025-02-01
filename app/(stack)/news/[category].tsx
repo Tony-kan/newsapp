@@ -6,7 +6,7 @@ import { FontAwesome5 } from "@expo/vector-icons";
 // displays all the news based on a particular category
 
 const News = () => {
-  const { id } = useLocalSearchParams();
+  const { category } = useLocalSearchParams();
   return (
     <View>
       <Stack.Screen
@@ -22,10 +22,10 @@ const News = () => {
               )}
             </Pressable>
           ),
-          title: `${id} News`,
+          title: `${category} News`,
         }}
       />
-      <Text>News category id : {id}</Text>
+      <Text>News category id : {category}</Text>
     </View>
   );
 };

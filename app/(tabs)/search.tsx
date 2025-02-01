@@ -35,7 +35,7 @@ const Search = () => {
   );
   return (
     <SafeAreaView>
-      <View className="px-4">
+      <View className="px-4 gap-4 mt-6">
         <Text className="text-3xl text-stone-500 mb-3 font-bold">Search</Text>
         <View className="flex flex-row justify-items-center items-center">
           <FontAwesome5 name="search" size={24} color="gray" className="mr-2" />
