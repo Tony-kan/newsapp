@@ -41,7 +41,7 @@ const NewsContent = () => {
 
       {visible && (
         <View className="flex-1 items-center justify-center">
-          <ActivityIndicator size="large" color="#0000ff" />
+          <ActivityIndicator size="large" color="#a16207" />
         </View>
       )}
     </View>

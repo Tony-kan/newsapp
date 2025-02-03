@@ -20,6 +20,7 @@ import {
 } from "@/components/newsItems";
 // import Carousel from "react-native-snap-carousel";
 import Carousel from "react-native-reanimated-carousel";
+import { router } from "expo-router";
 
 // displays breaking and recommended news
 
@@ -54,7 +55,7 @@ const Home = () => {
       >
         <View className="flex flex-row mx-4 justify-between items-center my-4">
           <Text className=" text-2xl font-semibold">Breaking News</Text>
-          <Pressable>
+          <Pressable onPress={() => router.push("/news/Breaking")}>
             <Text className="text-blue-500 mx-4 text-xl font-bold">
               View All
             </Text>
@@ -78,7 +79,7 @@ const Home = () => {
       </ScrollView>
       <View className="flex flex-row justify-between items-center mx-4 mb-4">
         <Text className="text-2xl font-semibold">Recommended News</Text>
-        <Pressable>
+        <Pressable onPress={() => router.push("/news/Recommended")}>
           <Text className="text-blue-500 mx-4 text-xl font-bold">View All</Text>
         </Pressable>
       </View>
