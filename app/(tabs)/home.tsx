@@ -70,7 +70,7 @@ const Home = () => {
             autoPlayInterval={5000}
             pagingEnabled={true}
             scrollAnimationDuration={2000}
-            snapEnabled={true}
+            // snapEnabled={true}
             windowSize={11}
             // key={breakingNewsQuery.data?.articles[0].url}
           />

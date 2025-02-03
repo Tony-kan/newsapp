@@ -48,18 +48,11 @@ const Discover = () => {
     setWithoutRemoved(filteredArticles || []);
   };
   return (
-    <SafeAreaView className="pt-8 bg-white dark:bg-neutral-900">
+    <SafeAreaView className="pt-8 ">
       <View>
         {/* Header */}
         <View className="px-4 mb-6 justify-between">
-          <Text
-            className="text-3xl text-[#a16207] mb-2 dark:text-white"
-            style={{
-              fontFamily: "SpaceGroteskBold",
-            }}
-          >
-            Discover
-          </Text>
+          <Text className="text-3xl  mb-2 font-bold">Discover</Text>
 
           <Text
             className="text-base text-gray-600 dark:text-neutral-300 "
@@ -96,21 +89,9 @@ const Discover = () => {
         <View className="h-full">
           {/* Header Title */}
           <View className="my-4 mx-4 flex-row justify-between items-center">
-            <Text
-              className="text-xl dark:text-white"
-              style={{
-                fontFamily: "SpaceGroteskBold",
-              }}
-            >
-              Discover
-            </Text>
+            <Text className="text-xl font-semibold">Discover</Text>
 
-            <Text
-              className="text-base text-[#a16207] dark:text-neutral-300"
-              style={{
-                fontFamily: "SpaceGroteskBold",
-              }}
-            >
+            <Text className="text-base text-[#a16207] font-semibold">
               View all
             </Text>
           </View>

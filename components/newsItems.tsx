@@ -32,7 +32,11 @@ interface newsCardProps {
 export const RenderBreakingNewsItems = ({ item }: any) => {
   return (
     <Pressable
-      onPress={() => router.push(`/content/${item.title}`)}
+      onPress={() =>
+        router.push(
+          `/content/${item.title}?url=${encodeURIComponent(item.url)}`
+        )
+      }
       key={item.url}
     >
       <View className="relative w-full">
@@ -83,7 +87,11 @@ export const RenderRecommendedNewsItems = ({ item }: any) => {
   return (
     <Pressable
       className="px-4 w-full"
-      onPress={() => router.push(`/content/${item.title}`)}
+      onPress={() =>
+        router.push(
+          `/content/${item.title}?url=${encodeURIComponent(item.url)}`
+        )
+      }
       key={item.url}
     >
       <View className="flex flex-row items-center justify-between w-full mb-4 bg-white shadow-xl rounded-xl">
@@ -215,10 +223,15 @@ export const CategoriesCard = ({
 };
 
 export const newsCard = ({ item }: { item: newsCardProps }) => {
+  // console.log("Inside items card", JSON.stringify(item, null, 2));
   return (
     <Pressable
       className="px-4 w-full"
-      onPress={() => router.push(`/content/${item.title}`)}
+      onPress={() =>
+        router.push(
+          `/content/${item.title}?url=${encodeURIComponent(item.url)}`
+        )
+      }
       key={item.url}
     >
       <View className="flex flex-row items-center justify-between w-full mb-4 bg-white shadow-xl rounded-xl">
