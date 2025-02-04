@@ -16,12 +16,13 @@ import {
   newsCard,
   //  CategoriesItems
 } from "@/components/newsItems";
-import { MagnifyingGlassIcon } from "react-native-heroicons/outline";
+// import { MagnifyingGlassIcon } from "react-native-heroicons/outline";
 import { fetchDiscoverNews } from "@/api/fetchnews";
 import { useQuery } from "@tanstack/react-query";
 import { router } from "expo-router";
 // import { heightPercentageToDP as hp } from "react-native-responsive-screen";
 import { categories } from "@/constants";
+import { FontAwesome5, FontAwesome6 } from "@expo/vector-icons";
 
 // allows users to read news based on category
 const Discover = () => {
@@ -67,7 +68,8 @@ const Discover = () => {
         {/* Search */}
         <View className="mx-4 mb-8 flex-row p-2 py-3 justify-between items-center bg-neutral-100 rounded-full">
           <Pressable className="pl-2">
-            <MagnifyingGlassIcon size="25" color="gray" />
+            {/* <MagnifyingGlassIcon size="25" color="gray" /> */}
+            <FontAwesome5 name="search" size={25} color="gray" />
           </Pressable>
           <TextInput
             onPressIn={() => router.push("/search")}

@@ -16,7 +16,7 @@ import {
 } from "@/utils";
 import { MaterialIcons } from "@expo/vector-icons";
 // import { Link } from "@react-navigation/native";
-import { heightPercentageToDP as hp } from "react-native-responsive-screen";
+// import { heightPercentageToDP as hp } from "react-native-responsive-screen";
 import {
   configureReanimatedLogger,
   ReanimatedLogLevel,
@@ -216,12 +216,7 @@ export const CategoriesCard = ({
               className="flex items-center space-y-1 mx-1"
             >
               <View className={"rounded-full py-2 px-4 " + activeButtonClass}>
-                <Text
-                  className={"capitalize " + activeTextClass}
-                  style={{
-                    fontSize: hp(1.6),
-                  }}
-                >
+                <Text className={"capitalize " + activeTextClass}>
                   {category.title}
                 </Text>
               </View>
