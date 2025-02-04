@@ -74,7 +74,7 @@ export default function Index() {
           <Text className="text-white text-2xl font-medium">Get Started</Text>
         </Pressable>
       </View>
-      <StatusBar style="light" />
+      <StatusBar style="auto" />
     </ImageBackground>
   );
 }

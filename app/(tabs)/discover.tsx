@@ -4,7 +4,7 @@ import {
   FlatList,
   Pressable,
   TextInput,
-  ScrollView,
+  // ScrollView,
   ActivityIndicator,
 } from "react-native";
 import React, { useEffect, useState } from "react";
@@ -20,7 +20,7 @@ import { MagnifyingGlassIcon } from "react-native-heroicons/outline";
 import { fetchDiscoverNews } from "@/api/fetchnews";
 import { useQuery } from "@tanstack/react-query";
 import { router } from "expo-router";
-import { heightPercentageToDP as hp } from "react-native-responsive-screen";
+// import { heightPercentageToDP as hp } from "react-native-responsive-screen";
 import { categories } from "@/constants";
 
 // allows users to read news based on category
@@ -90,9 +90,7 @@ const Discover = () => {
           {/* Header Title */}
           <View className="my-4 mx-4 flex-row justify-between items-center">
             <Text className="text-xl font-semibold">Discover</Text>
-            <Pressable
-              onPress={() => router.push(`/news/${activeCategory}`)}
-            >
+            <Pressable onPress={() => router.push(`/news/${activeCategory}`)}>
               <Text className="text-base text-[#a16207] font-semibold">
                 View all
               </Text>
@@ -115,6 +113,7 @@ const Discover = () => {
           )}
         </View>
       </View>
+      <StatusBar style="auto" />
     </SafeAreaView>
   );
 };

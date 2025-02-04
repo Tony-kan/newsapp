@@ -28,7 +28,7 @@ const TabsLayout = () => {
         options={{
           title: "Discover",
           tabBarIcon: ({ color }) => (
-            <MaterialIcons name="explore" size={24} color={color} />
+            <FontAwesome5 name="compass" size={24} color={color} />
           ),
         }}
       />
