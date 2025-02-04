@@ -2,10 +2,39 @@ import { ImageBackground, Pressable, Text, View } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 import { Redirect, router } from "expo-router";
 import { StatusBar } from "expo-status-bar";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 export default function Index() {
-  const onboarded = true;
+  const [onboarded, setOnboarded] = useState(false);
+  // console.log("onboarded before", onboarded);
+
+  useEffect(() => {
+    /**
+     * Checks if the user has been onboarded. If not, sets onboarded state to false.
+     * Otherwise, sets onboarded state to true.
+     */
+    const checkOnboarded = async () => {
+      const onboarded = await AsyncStorage.getItem("onboarded");
+      // console.log("onboarded after", onboarded);
+      if (!onboarded) {
+        setOnboarded(false);
+      }
+      if (onboarded === "true") {
+        setOnboarded(true);
+      }
+    };
+    checkOnboarded();
+  }, []);
+
+  /**
+   * Sets the onboarded value to true in AsyncStorage and updates the onboarded state.
+   * This is used to determine if the user has been onboarded.
+   */
+  async function handleOnboard() {
+    await AsyncStorage.setItem("onboarded", "true");
+    setOnboarded(true);
+  }
 
   if (onboarded) {
     return <Redirect href="/home" />;
@@ -36,7 +65,10 @@ export default function Index() {
         </Text>
 
         <Pressable
-          onPress={() => router.push("/home")}
+          onPress={() => {
+            router.push("/home");
+            handleOnboard();
+          }}
           className="bg-stone-500 text-2xl rounded-lg p-4 w-full items-center justify-center shadow-lg mt-4"
         >
           <Text className="text-white text-2xl font-medium">Get Started</Text>

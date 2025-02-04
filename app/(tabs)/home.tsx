@@ -61,7 +61,7 @@ const Home = () => {
             </Text>
           </Pressable>
         </View>
-        <View className="flex mx-4">
+        <View className="flex mx-4 ">
           <Carousel
             data={breakingNewsQuery?.data?.articles}
             renderItem={({ item }) => <RenderBreakingNewsItems item={item} />}

@@ -17,6 +17,16 @@ import {
 import { MaterialIcons } from "@expo/vector-icons";
 // import { Link } from "@react-navigation/native";
 import { heightPercentageToDP as hp } from "react-native-responsive-screen";
+import {
+  configureReanimatedLogger,
+  ReanimatedLogLevel,
+} from "react-native-reanimated";
+
+// This is the default configuration
+configureReanimatedLogger({
+  level: ReanimatedLogLevel.warn,
+  strict: false, // Reanimated runs in strict mode by default
+});
 
 const width = Dimensions.get("window").width;
 const height = Dimensions.get("window").height;
@@ -38,8 +48,9 @@ export const RenderBreakingNewsItems = ({ item }: any) => {
         )
       }
       key={item.url}
+      className="rounded-xl"
     >
-      <View className="relative w-full">
+      <View className="relative w-full rounded-xl">
         <Image
           source={{ uri: item.urlToImage || generateRandomImage() }}
           style={{
@@ -48,7 +59,7 @@ export const RenderBreakingNewsItems = ({ item }: any) => {
             borderRadius: 10,
           }}
           resizeMode="cover"
-          className="rounded-3xl"
+          className="rounded-xl"
         />
         <LinearGradient
           colors={["transparent", "rgba(0,0,0,0.9)"]}
