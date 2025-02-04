@@ -90,7 +90,9 @@ const Discover = () => {
           {/* Header Title */}
           <View className="my-4 mx-4 flex-row justify-between items-center">
             <Text className="text-xl font-semibold">Discover</Text>
-            <Pressable onPress={() => router.push(`/news/${activeCategory}`)}>
+            <Pressable
+              onPress={() => router.push(`/news/${activeCategory}`)}
+            >
               <Text className="text-base text-[#a16207] font-semibold">
                 View all
               </Text>

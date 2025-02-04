@@ -5,7 +5,6 @@ import { FontAwesome5 } from "@expo/vector-icons";
 import { newsCard } from "./newsItems";
 
 const DisplayNews = ({ news, category }: { category: string; news: any }) => {
-  // console.log("news", JSON.stringify(news, null, 2));
   return (
     <View className="flex-1">
       <Stack.Screen

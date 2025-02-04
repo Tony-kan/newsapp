@@ -35,7 +35,7 @@ const News = () => {
     return (
       <DisplayNews
         news={discoverNewsQuery}
-        category={`${category[0].toUpperCase() + category.slice(1)}`}
+        category={`Discover ${category[0].toUpperCase() + category.slice(1)}`}
       />
     );
   }
